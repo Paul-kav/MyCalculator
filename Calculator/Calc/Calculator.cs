@@ -62,5 +62,26 @@ namespace MyCalculator.Calc
             }
             return type;
         }
+
+        private int GetCalcNum()
+        {
+            int num;
+            //checking if the parse is successful
+            //returns as a boolean
+            bool parseCheck = Int32.TryParse(Console.ReadLine(), out num);
+
+            //As long as the boolean is false, it keeps looping the input
+            while (!parseCheck)
+            {
+                Console.WriteLine("Try again! This time with actual numbers... (-_- *)");
+                parseCheck = Int32.TryParse(Console.ReadLine(), out num);
+            }
+            return num;
+        }
+
+        public int Calculate(int num1, int num2, string type)
+        {
+
+        }
     }
 }
