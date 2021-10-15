@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+
 namespace MyCalculator.Calc
 {
     public class Calculator
@@ -10,7 +12,7 @@ namespace MyCalculator.Calc
         public void RunCalculation()
         {
             //declaring our variables
-            string[] operations = new string[4] { "+", "-", "*", "/" };
+            string[] allowedOper = new string[4] { "+", "-", "*", "/" };
             string type;
             int num1;
             int num2;
@@ -19,7 +21,7 @@ namespace MyCalculator.Calc
 
             //Get the operator type
             Console.WriteLine("What type of calculation do you want to perform? (+, -, *, /)");
-            type = GetCalcType(operations);
+            type = GetCalcType(allowedOper);
 
             //we get the first number
             Console.WriteLine("Write your first number.");
@@ -45,6 +47,20 @@ namespace MyCalculator.Calc
             {
                 Environment.Exit(0);
             }
+        }
+
+        private string GetCalcType(string[] allowedOper)
+        {
+            //we get the operation
+            string type = Console.ReadLine();
+
+            //check if operator selected is valid
+            while (!allowedOper.Contains(type))
+            {
+                Console.WriteLine("Choose a valid operator typeQ!");
+                type = Console.ReadLine();
+            }
+            return type;
         }
     }
 }
