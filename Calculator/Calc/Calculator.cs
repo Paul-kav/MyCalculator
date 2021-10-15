@@ -81,7 +81,31 @@ namespace MyCalculator.Calc
 
         public int Calculate(int num1, int num2, string type)
         {
+            //we declare our variables
+            int result;
 
+            //check operator type
+            if (type == "+")
+            {
+                result = num1 + num2;
+                return result;
+            }
+            else if (type == "-")
+            {
+                result = num1 - num2;
+                return result;
+            }
+            else if (type == "*")
+            {
+                result = num1 * num2;
+                return result;
+            }
+             else 
+            {
+                result = num1 / num2;
+                return result;
+            }
+           
         }
     }
 }
